@@ -1,0 +1,41 @@
+name:                gustav-bot
+version:             0.1.0.0
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+- discord-haskell
+- text
+- unliftio
+- random
+- containers
+- time
+- file-embed
+- mtl
+
+library:
+  source-dirs: src
+
+executables:
+  gustav-bot-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gustav-bot
+
+tests:
+  gustav-bot-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gustav-bot
